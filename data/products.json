@@ -1,0 +1,234 @@
+[
+  {
+    "id": "p1",
+    "name": "Aurora Wireless Earbuds",
+    "price": 79.99,
+    "category": "Electronics",
+    "image": "/images/earbuds.png",
+    "description": "Compact true-wireless earbuds with crisp sound, touch controls, and a pocket-sized charging case."
+  },
+  {
+    "id": "p2",
+    "name": "Pulse Smartwatch",
+    "price": 129.0,
+    "category": "Electronics",
+    "image": "/images/smartwatch.png",
+    "description": "Track steps, heart rate, and workouts with a bright display and all-day comfort."
+  },
+  {
+    "id": "p3",
+    "name": "Nimbus Desk Lamp",
+    "price": 45.5,
+    "category": "Home",
+    "image": "/images/tablelamp.png",
+    "description": "A minimal LED desk lamp with adjustable brightness for late-night focus sessions."
+  },
+  {
+    "id": "p4",
+    "name": "Evergreen Hoodie",
+    "price": 58.0,
+    "category": "Apparel",
+    "image": "/images/hoodie.png",
+    "description": "Soft fleece hoodie with a relaxed fit, perfect for everyday layering."
+  },
+  {
+    "id": "p5",
+    "name": "Ceramic Coffee Mug",
+    "price": 18.99,
+    "category": "Home",
+    "image": "/images/coffemug.png",
+    "description": "A sturdy ceramic mug with a comfortable handle and a clean matte finish."
+  },
+  {
+    "id": "p6",
+    "name": "Orbit Bluetooth Speaker",
+    "price": 64.0,
+    "category": "Electronics",
+    "image": "/images/speaker.png",
+    "description": "Portable speaker with punchy bass and a balanced sound profile for small rooms."
+  },
+  {
+    "id": "p7",
+    "name": "Trail Daypack",
+    "price": 52.0,
+    "category": "Accessories",
+    "image": "/images/daypack.png",
+    "description": "Lightweight daypack with a padded back panel and organized compartments."
+  },
+  {
+    "id": "p8",
+    "name": "Mechanical Keyboard",
+    "price": 99.0,
+    "category": "Accessories",
+    "image": "/images/keyboard.png",
+    "description": "Tactile mechanical keyboard designed for comfortable typing and a clean desk setup."
+  },
+  {
+    "id": "p9",
+    "name": "Stainless Steel Bottle",
+    "price": 24.5,
+    "category": "Accessories",
+    "image": "/images/bottle.png",
+    "description": "Double-wall insulated bottle that keeps drinks cold or hot for hours."
+  },
+  {
+    "id": "p10",
+    "name": "Dot Grid Notebook",
+    "price": 14.0,
+    "category": "Accessories",
+    "image": "/images/notebook.png",
+    "description": "Durable dot-grid notebook for planning, sketches, and daily notes."
+  },
+  {
+    "id": "p11",
+    "name": "ZenFit Yoga Mat",
+    "price": 32.0,
+    "category": "Fitness",
+    "image": "/images/yoga.png",
+    "description": "Non-slip yoga mat with cushioned support for comfortable workouts and stretching."
+  },
+  {
+    "id": "p12",
+    "name": "Aero Running Shoes",
+    "price": 89.99,
+    "category": "Apparel",
+    "image": "/images/shoes.png",
+    "description": "Lightweight running shoes designed for comfort, grip, and everyday performance."
+  },
+  {
+    "id": "p13",
+    "name": "Glide Wireless Mouse",
+    "price": 27.5,
+    "category": "Electronics",
+    "image": "/images/mouse.png",
+    "description": "Ergonomic wireless mouse with smooth tracking and long battery life."
+  },
+  {
+    "id": "p14",
+    "name": "Ultra HD Monitor 24\"",
+    "price": 189.0,
+    "category": "Electronics",
+    "image": "/images/monitor.png",
+    "description": "24-inch Full HD monitor with vibrant colors and slim bezels for a modern setup."
+  },
+  {
+    "id": "p15",
+    "name": "Classic Analog Watch",
+    "price": 72.0,
+    "category": "Accessories",
+    "image": "/images/watch.png",
+    "description": "Elegant analog watch with a leather strap and timeless design."
+  },
+  {
+    "id": "p16",
+    "name": "Portable Phone Charger",
+    "price": 29.99,
+    "category": "Electronics",
+    "image": "/images/powerbank.png",
+    "description": "Compact power bank with fast charging support for on-the-go convenience."
+  },
+  {
+    "id": "p17",
+    "name": "Kitchen Knife Set",
+    "price": 55.0,
+    "category": "Home",
+    "image": "/images/knifeset.png",
+    "description": "Stainless steel knife set with ergonomic handles for precision cutting."
+  },
+  {
+    "id": "p18",
+    "name": "Cotton Bedsheet Set",
+    "price": 49.5,
+    "category": "Home",
+    "image": "/images/bedsheet.png",
+    "description": "Soft and breathable cotton bedsheet set for a comfortable sleep experience."
+  },
+  {
+    "id": "p20",
+    "name": "Travel Organizer Pouch",
+    "price": 21.0,
+    "category": "Accessories",
+    "image": "/images/organizer.png",
+    "description": "Compact organizer pouch to keep cables, gadgets, and essentials in place."
+  },
+  {
+    "id": "p21",
+    "name": "Smart LED Bulb",
+    "price": 19.99,
+    "category": "Electronics",
+    "image": "/images/bulb.png",
+    "description": "Energy-efficient smart LED bulb with app control and adjustable brightness."
+  },
+  {
+    "id": "p22",
+    "name": "Foldable Laptop Stand",
+    "price": 34.0,
+    "category": "Accessories",
+    "image": "/images/laptopstand.png",
+    "description": "Adjustable aluminum laptop stand for better posture and cooling."
+  },
+  {
+    "id": "p23",
+    "name": "Noise Cancelling Earphones",
+    "price": 59.99,
+    "category": "Electronics",
+    "image": "/images/earphones.png",
+    "description": "In-ear earphones with active noise cancellation and deep bass."
+  },
+  {
+    "id": "p24",
+    "name": "Casual Denim Jacket",
+    "price": 68.5,
+    "category": "Apparel",
+    "image": "/images/jacket.png",
+    "description": "Stylish denim jacket with a modern fit for everyday wear."
+  },
+  {
+    "id": "p25",
+    "name": "Glass Water Bottle",
+    "price": 22.0,
+    "category": "Home",
+    "image": "/images/glassbottle.png",
+    "description": "Eco-friendly glass bottle with a protective silicone sleeve."
+  },
+  {
+    "id": "p26",
+    "name": "Wireless Charging Pad",
+    "price": 26.99,
+    "category": "Electronics",
+    "image": "/images/charger.png",
+    "description": "Fast wireless charging pad compatible with all Qi-enabled devices."
+  },
+  {
+    "id": "p27",
+    "name": "Office Chair Cushion",
+    "price": 31.5,
+    "category": "Home",
+    "image": "/images/cushion.png",
+    "description": "Memory foam cushion for enhanced comfort during long sitting hours."
+  },
+  {
+    "id": "p28",
+    "name": "Leather Wallet",
+    "price": 39.0,
+    "category": "Accessories",
+    "image": "/images/wallet.png",
+    "description": "Premium leather wallet with multiple compartments and slim design."
+  },
+  {
+    "id": "p29",
+    "name": "Fitness Resistance Bands",
+    "price": 28.0,
+    "category": "Fitness",
+    "image": "/images/bands.png",
+    "description": "Set of resistance bands for strength training and home workouts."
+  },
+  {
+    "id": "p30",
+    "name": "Digital Alarm Clock",
+    "price": 23.0,
+    "category": "Home",
+    "image": "/images/alarmclock.png",
+    "description": "Modern digital alarm clock with LED display and snooze function."
+  }
+]

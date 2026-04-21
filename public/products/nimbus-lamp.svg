@@ -1,0 +1,16 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="56" fill="url(#g)"/>
+  <g opacity="0.92">
+    <path d="M420 330C420 240 490 170 600 170C710 170 780 240 780 330H420Z" fill="white"/>
+    <rect x="570" y="330" width="60" height="260" rx="24" fill="white"/>
+    <rect x="470" y="590" width="260" height="54" rx="24" fill="white"/>
+  </g>
+  <text x="72" y="736" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="white" opacity="0.92">Nimbus Lamp</text>
+</svg>
+

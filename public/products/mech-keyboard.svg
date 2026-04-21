@@ -1,0 +1,30 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#64748B"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="56" fill="url(#g)"/>
+  <g opacity="0.92">
+    <rect x="270" y="310" width="660" height="220" rx="48" fill="white"/>
+    <g opacity="0.26" fill="#0F172A">
+      <rect x="315" y="350" width="70" height="40" rx="12"/>
+      <rect x="395" y="350" width="70" height="40" rx="12"/>
+      <rect x="475" y="350" width="70" height="40" rx="12"/>
+      <rect x="555" y="350" width="70" height="40" rx="12"/>
+      <rect x="635" y="350" width="70" height="40" rx="12"/>
+      <rect x="715" y="350" width="70" height="40" rx="12"/>
+      <rect x="795" y="350" width="90" height="40" rx="12"/>
+      <rect x="315" y="400" width="90" height="40" rx="12"/>
+      <rect x="415" y="400" width="70" height="40" rx="12"/>
+      <rect x="495" y="400" width="70" height="40" rx="12"/>
+      <rect x="575" y="400" width="140" height="40" rx="12"/>
+      <rect x="725" y="400" width="160" height="40" rx="12"/>
+      <rect x="315" y="450" width="440" height="40" rx="12"/>
+      <rect x="765" y="450" width="120" height="40" rx="12"/>
+    </g>
+  </g>
+  <text x="72" y="736" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="white" opacity="0.92">Mechanical Keyboard</text>
+</svg>
+
