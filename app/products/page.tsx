@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ProductsClient } from "@/components/products/ProductsClient";
-import { getAllProducts, getCategories } from "@/utils/products";
+import { ProductsLazyClient } from "@/components/products/ProductsLazyClient";
+import { getCategories } from "@/utils/products";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -8,8 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
-  const products = getAllProducts();
   const categories = getCategories();
-  return <ProductsClient products={products} categories={categories} />;
+  return <ProductsLazyClient categories={categories} />;
 }
-

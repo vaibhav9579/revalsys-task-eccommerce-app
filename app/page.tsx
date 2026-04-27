@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { getFeaturedProducts } from "@/utils/products";
+import { FeaturedProductsLazy } from "@/components/home/FeaturedProductsLazy";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -12,8 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const featured = getFeaturedProducts(6);
-
   return (
     <div>
       <section className="relative overflow-hidden bg-zinc-950 py-14 sm:py-24">
@@ -59,7 +56,7 @@ export default function Home() {
                     variant="glass"
                     className="w-full"
                   >
-                    Learn more
+                    Explore more
                   </Button>
                 </Link>
               </div>
@@ -96,11 +93,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
+          <FeaturedProductsLazy limit={6} />
         </Container>
       </section>
     </div>

@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import type { Product } from "@/types/product";
 import { useCart } from "@/components/providers/CartProvider";
 import { Button } from "@/components/ui/Button";
+import { useToast } from "@/components/ui/ToastProvider";
 
 export function AddToCartButton({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const { pushToast } = useToast();
   const [justAdded, setJustAdded] = useState(false);
 
   useEffect(() => {
@@ -21,6 +23,13 @@ export function AddToCartButton({ product }: { product: Product }) {
       onClick={() => {
         addItem(product, 1);
         setJustAdded(true);
+        pushToast({
+          title: "Added to cart",
+          description: product.name,
+          variant: "success",
+          actionLabel: "View cart",
+          actionHref: "/cart",
+        });
       }}
     >
       {justAdded ? "Added" : "Add to Cart"}

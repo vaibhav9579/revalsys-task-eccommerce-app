@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="mt-auto bg-zinc-950 text-zinc-200">
       <Container>
-        <div className="grid gap-10 py-12 md:grid-cols-12">
+        <div className="grid gap-8 py-12 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-4">
             <div className="flex items-center gap-3">
               <Image
@@ -83,8 +83,11 @@ export function Footer() {
             </div>
           </div>
 
-          <nav className="grid gap-8 sm:grid-cols-2 md:col-span-5 md:grid-cols-3" aria-label="Footer">
-            <div className="space-y-3">
+          <nav
+            className="grid grid-cols-2 gap-6 md:col-span-5 md:grid-cols-3 md:gap-8"
+            aria-label="Footer"
+          >
+            <div className="space-y-2.5">
               <p className="text-sm font-semibold text-white">Shop</p>
               <ul className="space-y-2 text-sm text-zinc-400">
                 <li>
@@ -110,7 +113,7 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <p className="text-sm font-semibold text-white">Company</p>
               <ul className="space-y-2 text-sm text-zinc-400">
                 <li>
@@ -136,7 +139,7 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <p className="text-sm font-semibold text-white">Help</p>
               <ul className="space-y-2 text-sm text-zinc-400">
                 <li>

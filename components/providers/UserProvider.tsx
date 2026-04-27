@@ -5,7 +5,8 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useSyncExternalStore,
+  useEffect,
+  useState,
 } from "react";
 import type { User } from "@/types/user";
 import { removeFromStorage, setToStorage } from "@/utils/storage";
@@ -27,28 +28,6 @@ function notifyUserStore() {
   userStoreEvents.dispatchEvent(new Event(USER_EVENT_NAME));
 }
 
-function subscribe(callback: () => void) {
-  const handler = () => callback();
-  userStoreEvents.addEventListener(USER_EVENT_NAME, handler);
-
-  const onStorage = (e: StorageEvent) => {
-    if (e.key === USER_STORAGE_KEY) callback();
-  };
-  if (typeof window !== "undefined") {
-    window.addEventListener("storage", onStorage);
-  }
-
-  return () => {
-    userStoreEvents.removeEventListener(USER_EVENT_NAME, handler);
-    if (typeof window !== "undefined") {
-      window.removeEventListener("storage", onStorage);
-    }
-  };
-}
-
-let cachedRaw: string | null | undefined = undefined;
-let cachedValue: User | null = null;
-
 function parseUser(raw: string | null): User | null {
   if (!raw) return null;
   try {
@@ -58,29 +37,41 @@ function parseUser(raw: string | null): User | null {
   }
 }
 
-function getSnapshot() {
+function readUserFromStorage(): User | null {
   if (typeof window === "undefined") return null;
-  const raw = window.localStorage.getItem(USER_STORAGE_KEY);
-  if (raw === cachedRaw) return cachedValue;
-  cachedRaw = raw;
-  cachedValue = parseUser(raw);
-  return cachedValue;
-}
-
-function getServerSnapshot() {
-  return null;
+  return parseUser(window.localStorage.getItem(USER_STORAGE_KEY));
 }
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
-  const user = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    setUser(readUserFromStorage());
+
+    const onCustom = () => setUser(readUserFromStorage());
+    userStoreEvents.addEventListener(USER_EVENT_NAME, onCustom);
+
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== USER_STORAGE_KEY) return;
+      setUser(parseUser(e.newValue));
+    };
+    window.addEventListener("storage", onStorage);
+
+    return () => {
+      userStoreEvents.removeEventListener(USER_EVENT_NAME, onCustom);
+      window.removeEventListener("storage", onStorage);
+    };
+  }, []);
 
   const login = useCallback((next: User) => {
     setToStorage(USER_STORAGE_KEY, next);
+    setUser(next);
     notifyUserStore();
   }, []);
 
   const logout = useCallback(() => {
     removeFromStorage(USER_STORAGE_KEY);
+    setUser(null);
     notifyUserStore();
   }, []);
 

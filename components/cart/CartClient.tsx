@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { formatCurrency } from "@/utils/format";
 import { RazorpayCheckoutButton } from "@/components/checkout/RazorpayCheckoutButton";
+import { useToast } from "@/components/ui/ToastProvider";
 
 export function CartClient() {
   const { items, subtotal, hydrated, increase, decrease, removeItem, clearCart } =
     useCart();
+  const { pushToast } = useToast();
 
   if (!hydrated) {
     return (
@@ -50,14 +52,23 @@ export function CartClient() {
   return (
     <div className="py-10">
       <Container>
-        <div className="flex items-end justify-between gap-4">
+          <div className="flex items-end justify-between gap-4">
           <div>
             <h1 className="text-3xl font-semibold tracking-tight">Cart</h1>
             <p className="mt-1 text-sm text-zinc-600">
               Review items, update quantities, and see your total.
             </p>
           </div>
-          <Button variant="ghost" onClick={clearCart}>
+          <Button
+            variant="ghost"
+            onClick={() => {
+              clearCart();
+              pushToast({
+                title: "Cart cleared",
+                variant: "info",
+              });
+            }}
+          >
             Clear cart
           </Button>
         </div>
@@ -122,7 +133,14 @@ export function CartClient() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => removeItem(it.product.id)}
+                        onClick={() => {
+                          removeItem(it.product.id);
+                          pushToast({
+                            title: "Removed from cart",
+                            description: it.product.name,
+                            variant: "danger",
+                          });
+                        }}
                       >
                         Remove
                       </Button>

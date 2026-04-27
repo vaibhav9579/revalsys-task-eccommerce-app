@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useCart } from "@/components/providers/CartProvider";
 import { useUser } from "@/components/providers/UserProvider";
 import { Container } from "@/components/ui/Container";
@@ -23,18 +24,105 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   );
 }
 
+function MobileNavLink({
+  href,
+  children,
+  onNavigate,
+}: {
+  href: string;
+  children: React.ReactNode;
+  onNavigate: () => void;
+}) {
+  const pathname = usePathname();
+  const active = pathname === href || (href !== "/" && pathname.startsWith(href));
+
+  return (
+    <Link
+      href={href}
+      onClick={onNavigate}
+      className={`block rounded-xl px-4 py-3 text-sm font-medium transition ${
+        active ? "bg-zinc-900 text-white" : "text-zinc-700 hover:bg-zinc-100"
+      }`}
+    >
+      {children}
+    </Link>
+  );
+}
+
 export function Navbar() {
   const { totalItems, hydrated: cartHydrated } = useCart();
   const { user, logout } = useUser();
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const cartCount = cartHydrated ? totalItems : 0;
   const userLabel = user ? user.name : "Login";
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/80 backdrop-blur">
+      {mobileOpen ? (
+        <div
+          className="fixed inset-0 z-30 sm:hidden"
+          aria-hidden="true"
+          onClick={() => setMobileOpen(false)}
+        />
+      ) : null}
       <Container>
         <div className="flex items-center justify-between gap-4 py-3">
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-700 shadow-sm transition hover:bg-zinc-100 sm:hidden"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMobileOpen((v) => !v)}
+            >
+              {mobileOpen ? (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              ) : (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 6h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 18h16" />
+                </svg>
+              )}
+            </button>
+
             <Link
               href="/"
               className="inline-flex items-center rounded-xl px-2 py-1 transition hover:bg-zinc-100"
@@ -121,14 +209,27 @@ export function Navbar() {
           </div>
         </div>
 
-        <nav className="flex items-center gap-1 pb-3 sm:hidden">
-          <div className="-mx-4 flex flex-nowrap gap-1 overflow-x-auto px-4 pb-1">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/products">Products</NavLink>
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+        <div
+          id="mobile-menu"
+          className={`sm:hidden ${mobileOpen ? "pb-3" : "hidden"}`}
+        >
+          <div className="relative z-40 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg">
+            <div className="space-y-1 p-2">
+              <MobileNavLink href="/" onNavigate={() => setMobileOpen(false)}>
+                Home
+              </MobileNavLink>
+              <MobileNavLink href="/products" onNavigate={() => setMobileOpen(false)}>
+                Products
+              </MobileNavLink>
+              <MobileNavLink href="/about" onNavigate={() => setMobileOpen(false)}>
+                About
+              </MobileNavLink>
+              <MobileNavLink href="/contact" onNavigate={() => setMobileOpen(false)}>
+                Contact
+              </MobileNavLink>
+            </div>
           </div>
-        </nav>
+        </div>
       </Container>
     </header>
   );

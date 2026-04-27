@@ -19,9 +19,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className="h-full antialiased js-focus-visible"
+      data-js-focus-visible=""
+      suppressHydrationWarning
     >
-      <body className="min-h-full">
+      <body className="min-h-full" suppressHydrationWarning>
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
